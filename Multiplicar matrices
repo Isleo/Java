@@ -3,10 +3,9 @@ import java.util.*;
 public class Ejercicio { 
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
-        int[][] matriz1 = pedirMatriz1(input);
-        int[][] matriz2 = pedirMatriz2(input);
+        int[][] matriz1 = pedirMatriz(input);
+        int[][] matriz2 = pedirMatriz(input);
         int[] columnasMatriz2 = new int[matriz2[0].length];
-        
         if(matriz1[0].length==matriz2.length){
             System.out.println("La matriz producto será: ");
             int[][] productoMatriz = producto(matriz1, matriz2);
@@ -24,33 +23,19 @@ public class Ejercicio {
         
     }
     
-    public static int[][] pedirMatriz1(Scanner input){
+    public static int[][] pedirMatriz(Scanner input){
         System.out.print("Introduzca el número de filas de la primera matriz:");
-        int n1 = input.nextInt();
+        int n = input.nextInt();
         System.out.print("Introduzca el número de columnas de la primera matriz:");
-        int m1 = input.nextInt();
-        int[][] matriz1 = new int [n1][m1];
-        for(int i=0;i<matriz1.length;i++){
-            for(int j=0;j<matriz1[0].length;j++){
+        int m = input.nextInt();
+        int[][] matriz = new int [n][m];
+        for(int i=0;i<matriz.length;i++){
+            for(int j=0;j<matriz[0].length;j++){
                 System.out.print("Elemento ["+i+"]["+j+"]:");
-                matriz1[i][j]= input.nextInt();
+                matriz[i][j]= input.nextInt();
             }    
         }
-        return matriz1;
-    }
-    public static int[][] pedirMatriz2(Scanner input){
-        System.out.print("Introduzca el número de filas de la segunda matriz:");
-        int n2 = input.nextInt();
-        System.out.print("Introduzca el número de columnas de la segunda matriz:");
-        int m2 = input.nextInt();
-        int[][] matriz2 = new int [n2][m2];
-        for(int i=0;i<matriz2.length;i++){
-            for(int j=0;j<matriz2[0].length;j++){
-                System.out.print("Elemento ["+i+"]["+j+"]:");
-                matriz2[i][j]= input.nextInt();
-            }    
-        }
-        return matriz2;
+        return matriz;
     }
     
    private static int[][] producto(int matriz1[][], int matriz2[][]){  
