@@ -3,8 +3,10 @@ import java.util.*;
 public class Ejercicio { 
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
-        int[][] matriz1 = pedirMatriz(input);
-        int[][] matriz2 = pedirMatriz(input);
+        String primera = "primera";
+        String segunda = "segunda";
+        int[][] matriz1 = pedirMatriz(input,primera);
+        int[][] matriz2 = pedirMatriz(input,segunda);
         int[] columnasMatriz2 = new int[matriz2[0].length];
         if(matriz1[0].length==matriz2.length){
             System.out.println("La matriz producto será: ");
@@ -23,10 +25,10 @@ public class Ejercicio {
         
     }
     
-    public static int[][] pedirMatriz(Scanner input){
-        System.out.print("Introduzca el número de filas de la primera matriz:");
+    public static int[][] pedirMatriz(Scanner input, String palabra){
+        System.out.print("Introduzca el número de filas de la "+palabra+" matriz:");
         int n = input.nextInt();
-        System.out.print("Introduzca el número de columnas de la primera matriz:");
+        System.out.print("Introduzca el número de columnas de la "+palabra+" matriz:");
         int m = input.nextInt();
         int[][] matriz = new int [n][m];
         for(int i=0;i<matriz.length;i++){
